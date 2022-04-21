@@ -1,4 +1,6 @@
 
+import manager.impl.*;
+
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -7,10 +9,15 @@ public class Main {
         Connection con;
         try {
             con = new MySQLConnector().getMySQLConnection();
-            System.out.println(con.getCatalog());
+            ActorManagerImp acmi = new ActorManagerImp();
+            CountryManagerImp cmi = new CountryManagerImp();
+            FilmCategoryManagerImp fcmi = new FilmCategoryManagerImp();
+            InventorManagerImp itmi = new InventorManagerImp();
+            StoreManagerImp stmi =new StoreManagerImp();
+
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        } catch (SQLException e) {
+        } catch(SQLException e) {
             e.printStackTrace();
         }
 
