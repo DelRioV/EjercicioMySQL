@@ -46,7 +46,7 @@ public interface CountryManager {
      * @param name
      * @param newName
      */
-    public void updateCountry(Connection con,String name,String newName) throws SQLException;
+    public boolean updateCountry(Connection con,String name,String newName) throws SQLException;
 
     /**
      * Delete Country by Name
@@ -54,7 +54,7 @@ public interface CountryManager {
      * @param con
      * @param name
      */
-    public void deleteCountry(Connection con,String name) throws SQLException;
+    public boolean deleteCountry(Connection con,String name) throws SQLException;
 
     /**
      * Insert new country
@@ -71,7 +71,7 @@ public interface CountryManager {
      * @param code2
      */
 
-    public void insertCountry(Connection con,String code,String name,String continent,String region,float surfaceArea,int population,String localName,String government,String code2) throws SQLException;
+    public boolean insertCountry(Connection con,String code,String name,String continent,String region,float surfaceArea,int population,String localName,String government,String code2) throws SQLException;
 
 
 }

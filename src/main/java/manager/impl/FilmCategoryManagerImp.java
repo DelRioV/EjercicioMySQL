@@ -63,33 +63,57 @@ public class FilmCategoryManagerImp implements FilmCategoryManager {
 
 
     @Override
-    public void updateFilmCategory(Connection con, String name, String newName) throws SQLException {
-        PreparedStatement pstm = con.prepareStatement("UPDATE FilmCategory SET NAME=? WHERE NAME=?");
-        pstm.setString(1,newName);
-        pstm.setString(2,name);
-        ResultSet rs = pstm.executeQuery();
+    public boolean updateFilmCategory(Connection con, String name, String newName) throws SQLException {
+        boolean kk = false;
+        try{
+                PreparedStatement pstm = con.prepareStatement("UPDATE FilmCategory SET NAME=? WHERE NAME=?");
+            pstm.setString(1,newName);
+            pstm.setString(2,name);
+            ResultSet rs = pstm.executeQuery();
+            kk = true;
+            return kk;
+        } catch (Exception e){
+            e.printStackTrace();
+            return kk;
+        }
     }
 
     @Override
-    public void deleteFilmCategory(Connection con, String name) throws SQLException {
-        PreparedStatement pstm = con.prepareStatement("DELETE FilmCategory WHERE NAME=?");
-        pstm.setString(1,name);
-        ResultSet rs = pstm.executeQuery();
+    public boolean deleteFilmCategory(Connection con, String name) throws SQLException {
+        boolean kk = false;
+        try{
+            PreparedStatement pstm = con.prepareStatement("DELETE FilmCategory WHERE NAME=?");
+            pstm.setString(1,name);
+            ResultSet rs = pstm.executeQuery();
+            kk = true;
+            return kk;
+        } catch (Exception e){
+            e.printStackTrace();
+            return kk;
+            }
     }
 
     @Override
-    public void insertFilmCategory(Connection con, String code, String name, String continent, String region, float surfaceArea, int population, String localName, String government, String code2) throws SQLException {
-        PreparedStatement pstm = con.prepareStatement("INSERT INTO FilmCategory VALUES(CODE=?,NAME=?,CONTINENT=?,REGION=?,SURFACEAREA=?,POPULATION=?,LOCALNAME=?,GOVERNMENTFORM=?,CODE2=?)");
-        pstm.setString(1,code);
-        pstm.setString(2,name);
-        pstm.setString(3,continent);
-        pstm.setString(4,region);
-        pstm.setFloat(5,surfaceArea);
-        pstm.setInt(6,population);
-        pstm.setString(7,localName);
-        pstm.setString(8,government);
-        pstm.setString(9,code2);
-        ResultSet rs = pstm.executeQuery();
+    public boolean insertFilmCategory(Connection con, String code, String name, String continent, String region, float surfaceArea, int population, String localName, String government, String code2) throws SQLException {
+        boolean kk = false;
+        try{
+            PreparedStatement pstm = con.prepareStatement("INSERT INTO FilmCategory VALUES(CODE=?,NAME=?,CONTINENT=?,REGION=?,SURFACEAREA=?,POPULATION=?,LOCALNAME=?,GOVERNMENTFORM=?,CODE2=?)");
+            pstm.setString(1,code);
+            pstm.setString(2,name);
+            pstm.setString(3,continent);
+            pstm.setString(4,region);
+            pstm.setFloat(5,surfaceArea);
+            pstm.setInt(6,population);
+            pstm.setString(7,localName);
+            pstm.setString(8,government);
+            pstm.setString(9,code2);
+            ResultSet rs = pstm.executeQuery();
+            kk = true;
+            return kk;
+        } catch (Exception e){
+            e.printStackTrace();
+            return kk;
+        }
     }
 
     private List<FilmCategory> prepareReturn(ResultSet result) throws SQLException {

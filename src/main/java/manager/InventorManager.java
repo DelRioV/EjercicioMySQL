@@ -12,10 +12,10 @@ public interface InventorManager {
 
     public Inventor filtrerInventorById(Connection con, String word) throws SQLException;
 
-    public void updateInventor(Connection con,String name,String newName) throws SQLException;
+    public boolean updateInventor(Connection con,String name,String newName) throws SQLException;
 
-    public void deleteInventor(Connection con,String name) throws SQLException;
+    public boolean deleteInventor(Connection con,String name) throws SQLException;
 
-    public void insertInventor(Connection con,String code,String name,String continent,String region,float surfaceArea,int population,String localName,String government,String code2) throws SQLException;
+    public boolean insertInventor(Connection con,String code,String name,String continent,String region,float surfaceArea,int population,String localName,String government,String code2) throws SQLException;
 
 }

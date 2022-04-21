@@ -12,10 +12,10 @@ public interface StoreManager {
 
     public Store filtrerStoreById(Connection con, String word) throws SQLException;
 
-    public void updateStore(Connection con,String name,String newName) throws SQLException;
+    public boolean updateStore(Connection con,String name,String newName) throws SQLException;
 
-    public void deleteStore(Connection con,String name) throws SQLException;
+    public boolean deleteStore(Connection con,String name) throws SQLException;
 
-    public void insertStore(Connection con,String code,String name,String continent,String region,float surfaceArea,int population,String localName,String government,String code2) throws SQLException;
+    public boolean insertStore(Connection con,String code,String name,String continent,String region,float surfaceArea,int population,String localName,String government,String code2) throws SQLException;
 
 }
